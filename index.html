@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cafe Aroma</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fffdfc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #8e2de2, #ff6f61);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #ffd8d4;
+    }
+
+    .hero {
+      background: url('cafe.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h2 {
+      font-size: 3.8rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    section {
+      padding: 80px 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.7rem;
+      margin-bottom: 50px;
+      color: #ff6f61;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #ff6f61;
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    .about p {
+      margin-bottom: 20px;
+      font-size: 2.0rem; /* Increased from 1.5rem */
+      text-align: justify;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .menu-item {
+      background-color: #fff4f1;
+      border: 1px solid #ffe2dc;
+      padding: 25px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-item h3 {
+      color: #d6452d;
+      margin-bottom: 10px;
+    }
+
+    .menu-item p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .testimonials {
+      text-align: center;
+    }
+
+    .testimonial {
+      margin-bottom: 30px;
+      background: #fef2f0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .testimonial h4 {
+      color: #ff6f61;
+      font-weight: normal;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    .contact-info, .contact-form {
+      flex: 1 1 45%;
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #e05549;
+    }
+
+    footer {
+      background-color: #2c2c2c;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      font-size: 0.95rem;
+    }
+
+    .socials img {
+      width: 28px;
+      margin: 0 10px;
+      filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.3rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .menu {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cafe Aroma</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home"></section>
+
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+  <div class="about">
+    <ul>
+      <h3><p><li>Cafe Aroma was founded in 2015 with the vision of creating a relaxing space for people to enjoy flavorful food and warm company. Located in the heart of the city, we blend tradition with innovation in every dish we serve.</li></p>
+      <p><li>Our team of chefs crafts a diverse menu, with ingredients sourced fresh from local farms. We believe that food is not just nourishment, but an experience that should delight every sense.</li></p>
+      <p><li>Whether you're catching up with friends, holding a business meeting, or just need your daily dose of coffee – Cafe Aroma is your perfect destination.</li></p></h3>
+    </ul>
+  </div>
+</section>
+
+<section id="menu">
+  <h2 class="section-title">Our Menu</h2>
+  <div class="menu">
+    <div class="menu-item"><h3>Hazelnut Cold Brew</h3><p>Chilled coffee blended with hazelnut syrup and cream – ₹150</p></div>
+    <div class="menu-item"><h3>Cheesy Garlic Bread</h3><p>Freshly baked bread with garlic butter and melted cheese – ₹120</p></div>
+    <div class="menu-item"><h3>Classic Club Sandwich</h3><p>Layered with veggies, cheese, and grilled paneer – ₹180</p></div>
+    <div class="menu-item"><h3>Choco Lava Cake</h3><p>Warm chocolate cake with a gooey center – ₹90</p></div>
+    <div class="menu-item"><h3>Veggie Delight Pizza</h3><p>Loaded with olives, capsicum, tomatoes & cheese – ₹240</p></div>
+    <div class="menu-item"><h3>Mango Smoothie</h3><p>Refreshing mango smoothie topped with chia seeds – ₹130</p></div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <h2 class="section-title">Customer Reviews</h2>
+  <div class="testimonials">
+    <div class="testimonial"><p>"Cafe Aroma has become my go-to place after work. Their cold brew and sandwiches are divine!"</p><h4>- Priya Shah</h4></div>
+    <div class="testimonial"><p>"Beautiful ambiance, friendly staff, and the food is just out of this world. Highly recommended!"</p><h4>- Arjun Mehta</h4></div>
+    <div class="testimonial"><p>"Absolutely love the cozy atmosphere and the coffee is top-notch!"</p><h4>- Neha S.</h4></div>
+    <div class="testimonial"><p>"Perfect weekend hangout spot with amazing desserts."</p><h4>- Ramesh P.</h4></div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <div class="contact">
+    <div class="contact-info">
+      <p><strong>📍 Location:</strong> 12 Bliss Avenue, Mumbai</p>
+      <p><strong>📞 Phone:</strong> +91 98765 43210</p>
+      <p><strong>📧 Email:</strong> hello@cafearoma.in</p>
+      <p><strong>⏰ Timings:</strong> Mon–Sun: 9 AM – 10 PM</p>
+    </div>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Cafe Aroma. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
